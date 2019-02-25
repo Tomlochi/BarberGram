@@ -73,7 +73,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="y63-JN-Lfw" kind="presentation" id="ueQ-Tt-4hy"/>
+                                            <action selector="signInButton_TouchUpInside:" destination="aCl-vU-zg3" eventType="touchUpInside" id="OxH-yK-6ts"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPS-DO-XmN">
@@ -103,10 +103,16 @@
                         <color key="tintColor" red="0.042736398449999997" green="0.256799218" blue="0.44112067449999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="G5Z-2f-EHw"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextFiled" destination="ckM-al-WFB" id="RQc-qX-BtQ"/>
+                        <outlet property="loginButton" destination="Tff-iI-wSd" id="mka-cB-c1Y"/>
+                        <outlet property="passwordTextFiled" destination="pb3-zp-osH" id="Nfg-PW-JkS"/>
+                        <segue destination="y63-JN-Lfw" kind="presentation" identifier="singinToMenuVC" id="6ca-ny-g2Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fCO-E8-Q9v" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="742" y="27"/>
+            <point key="canvasLocation" x="-887" y="219"/>
         </scene>
         <!--Sin Up View Controller-->
         <scene sceneID="MtD-Fg-F92">
@@ -211,12 +217,14 @@
                         <outlet property="emailTextField" destination="Fyb-PF-MEV" id="fae-xa-cNI"/>
                         <outlet property="passwordTextFiled" destination="rV6-uP-5ZJ" id="KG3-Fx-9tn"/>
                         <outlet property="profileImage" destination="W4E-5I-bQD" id="nYk-Vv-Hqi"/>
+                        <outlet property="singupButton" destination="gjK-aB-BhW" id="5dC-c5-y9M"/>
                         <outlet property="usernameTextFiled" destination="cZS-R1-4Ca" id="Yht-iJ-WjT"/>
+                        <segue destination="y63-JN-Lfw" kind="presentation" identifier="singupToMenuVC" id="glG-Ln-8Wv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IAw-tT-c39" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1727.536231884058" y="26.90217391304348"/>
+            <point key="canvasLocation" x="1132" y="218"/>
         </scene>
         <!--Discover-->
         <scene sceneID="nGW-Q3-XvJ">
@@ -285,14 +293,20 @@
         <!--Home-->
         <scene sceneID="sh4-TP-Z7r">
             <objects>
-                <viewController id="hkg-3h-diS" customClass="HomeViewController" customModule="BarberGram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hkg-3h-diS" customClass="HomePageViewController" customModule="BarberGram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yeP-KL-UBv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="jGA-je-klW"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="5WW-Py-tIR"/>
+                    <navigationItem key="navigationItem" title="Home" id="5WW-Py-tIR">
+                        <barButtonItem key="leftBarButtonItem" title="LogOut" id="eaU-6s-PyF">
+                            <connections>
+                                <action selector="logoutButton:" destination="hkg-3h-diS" id="s8Z-md-81F"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LSo-SC-2k2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -317,7 +331,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0e4-Vy-fpS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="652" y="-681"/>
+            <point key="canvasLocation" x="45" y="-450"/>
         </scene>
         <!--Home-->
         <scene sceneID="M1B-nJ-ljL">
@@ -429,4 +443,7 @@
         <image name="profile-image" width="1600" height="1008"/>
         <image name="sideLogo" width="16" height="16"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="glG-Ln-8Wv"/>
+    </inferredMetricsTieBreakers>
 </document>

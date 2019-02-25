@@ -10,6 +10,7 @@
 		1375B4F9EB8D08C3516B0F93 /* Pods_BarberGramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7B34B5BDABAD9E94805D0D /* Pods_BarberGramTests.framework */; };
 		50E239B330E1A9AC69C9CECB /* Pods_BarberGram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9171A627C47844D8A77C2A /* Pods_BarberGram.framework */; };
 		713317551DA3F2B4D0D4BD44 /* Pods_BarberGramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769525D2C4009ABEA04BF92F /* Pods_BarberGramUITests.framework */; };
+		84447CA22224549600EAB773 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84447CA12224549600EAB773 /* HomePageViewController.swift */; };
 		848462C52221C1670045E4E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848462C42221C1670045E4E9 /* AppDelegate.swift */; };
 		848462C72221C1670045E4E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848462C62221C1670045E4E9 /* ViewController.swift */; };
 		848462CA2221C1670045E4E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848462C82221C1670045E4E9 /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		4F7B34B5BDABAD9E94805D0D /* Pods_BarberGramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarberGramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F9171A627C47844D8A77C2A /* Pods_BarberGram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarberGram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		769525D2C4009ABEA04BF92F /* Pods_BarberGramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarberGramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84447CA12224549600EAB773 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		848462C12221C1670045E4E9 /* BarberGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarberGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		848462C42221C1670045E4E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		848462C62221C1670045E4E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				848462C62221C1670045E4E9 /* ViewController.swift */,
 				848462F82221CD850045E4E9 /* DiscoverViewController.swift */,
 				848462FA2221CD900045E4E9 /* CameraViewController.swift */,
+				84447CA12224549600EAB773 /* HomePageViewController.swift */,
 				848462FC2221CDBD0045E4E9 /* ActivityViewController.swift */,
 				848462FE2221CDC70045E4E9 /* ProfileViewController.swift */,
 				848462F42221C3480045E4E9 /* SignInViewController.swift */,
@@ -414,6 +417,7 @@
 				848463012221CDF00045E4E9 /* HomeViewController.swift in Sources */,
 				848462FB2221CD900045E4E9 /* CameraViewController.swift in Sources */,
 				848462FF2221CDC70045E4E9 /* ProfileViewController.swift in Sources */,
+				84447CA22224549600EAB773 /* HomePageViewController.swift in Sources */,
 				848462F32221C3380045E4E9 /* SinUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
