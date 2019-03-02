@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -249,14 +250,79 @@
                     <view key="view" contentMode="scaleToFill" id="VLj-9k-TCk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O2s-Uy-Vg7">
+                                <rect key="frame" x="0.0" y="64" width="140" height="100"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder-photo" translatesAutoresizingMaskIntoConstraints="NO" id="oLW-oY-t40">
+                                        <rect key="frame" x="8" y="10" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="cMh-wJ-IsO"/>
+                                            <constraint firstAttribute="width" constant="80" id="d6d-X9-Oeh"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gdp-S9-CwD">
+                                        <rect key="frame" x="96" y="10" width="217" height="85"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="217" id="0SO-yt-Ntr"/>
+                                            <constraint firstAttribute="height" constant="85" id="kp3-cb-HM7"/>
+                                        </constraints>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="oLW-oY-t40" firstAttribute="leading" secondItem="O2s-Uy-Vg7" secondAttribute="leading" constant="8" id="4ns-gj-5lx"/>
+                                    <constraint firstAttribute="bottom" secondItem="oLW-oY-t40" secondAttribute="bottom" constant="10" id="AEZ-OY-DLW"/>
+                                    <constraint firstAttribute="trailing" secondItem="gdp-S9-CwD" secondAttribute="trailing" constant="8" id="ItP-G4-2mV"/>
+                                    <constraint firstItem="gdp-S9-CwD" firstAttribute="top" secondItem="O2s-Uy-Vg7" secondAttribute="top" constant="10" id="LuT-jr-U0k"/>
+                                    <constraint firstAttribute="bottom" secondItem="gdp-S9-CwD" secondAttribute="bottom" constant="10" id="Yxz-zC-Qc6"/>
+                                    <constraint firstAttribute="height" constant="100" id="bJG-I9-dsu"/>
+                                    <constraint firstItem="oLW-oY-t40" firstAttribute="top" secondItem="O2s-Uy-Vg7" secondAttribute="top" constant="10" id="f05-BI-CMV"/>
+                                    <constraint firstItem="gdp-S9-CwD" firstAttribute="leading" secondItem="oLW-oY-t40" secondAttribute="trailing" constant="8" id="o6H-XW-O8Y"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4tt-dw-gaN">
+                                <rect key="frame" x="0.0" y="605" width="414" height="56"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="09k-l0-DBv"/>
+                                </constraints>
+                                <state key="normal" title="Share">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="shatrButton_touchUp:" destination="vHQ-KT-oTS" eventType="touchUpInside" id="S6d-9h-baK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4tt-dw-gaN" firstAttribute="leading" secondItem="SPD-Fh-V0X" secondAttribute="leading" constant="8" id="CC3-oT-Ukw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4tt-dw-gaN" secondAttribute="trailing" constant="8" id="Gh1-kG-aKE"/>
+                            <constraint firstItem="O2s-Uy-Vg7" firstAttribute="trailing" secondItem="SPD-Fh-V0X" secondAttribute="trailing" id="QfT-Q0-2h2"/>
+                            <constraint firstItem="SPD-Fh-V0X" firstAttribute="bottom" secondItem="4tt-dw-gaN" secondAttribute="bottom" constant="18" id="XP5-x2-vLp"/>
+                            <constraint firstItem="O2s-Uy-Vg7" firstAttribute="top" secondItem="SPD-Fh-V0X" secondAttribute="top" id="ZPb-tn-l0g"/>
+                            <constraint firstItem="SPD-Fh-V0X" firstAttribute="trailing" secondItem="4tt-dw-gaN" secondAttribute="trailing" constant="50" id="ct0-MY-aWW"/>
+                            <constraint firstItem="O2s-Uy-Vg7" firstAttribute="leading" secondItem="SPD-Fh-V0X" secondAttribute="leading" id="pn2-il-8pU"/>
+                            <constraint firstItem="4tt-dw-gaN" firstAttribute="leading" secondItem="SPD-Fh-V0X" secondAttribute="leading" constant="50" id="rFY-Qx-YNV"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="4tt-dw-gaN" secondAttribute="bottom" constant="8" id="sgf-Zi-cf5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="SPD-Fh-V0X"/>
                     </view>
                     <navigationItem key="navigationItem" title="Camera" id="JOA-is-Xgk"/>
+                    <connections>
+                        <outlet property="captionTextView" destination="gdp-S9-CwD" id="VDN-f4-NVc"/>
+                        <outlet property="photo" destination="oLW-oY-t40" id="lQ5-P6-r6P"/>
+                        <outlet property="shareButton" destination="4tt-dw-gaN" id="uzg-6B-U6B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uCf-eM-WqH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1522" y="-2207"/>
+            <point key="canvasLocation" x="1521.7391304347827" y="-2207.608695652174"/>
         </scene>
         <!--Activity-->
         <scene sceneID="ZEo-do-VDO">
@@ -440,10 +506,11 @@
         <image name="Search" width="23" height="22"/>
         <image name="Search_Selected" width="23" height="22"/>
         <image name="barber-main" width="1500" height="838"/>
+        <image name="placeholder-photo" width="840" height="600"/>
         <image name="profile-image" width="1600" height="1008"/>
         <image name="sideLogo" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="glG-Ln-8Wv"/>
+        <segue reference="6ca-ny-g2Y"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -17,9 +17,17 @@ class HomePageViewController: UIViewController {
     }
     
     @IBAction func logoutButton(_ sender: Any) {
+      
+        do {
+       try  Auth.auth().signOut()
+        }catch let logoutError{
+            print (logoutError)
+        }
         
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let signInVc = storyBoard.instantiateInitialViewController()
+        self.present(signInVc!, animated: true, completion: nil)
     }
-    
-
 
 }

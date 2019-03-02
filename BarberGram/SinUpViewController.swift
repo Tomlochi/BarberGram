@@ -14,6 +14,8 @@ import FirebaseStorage
 class SinUpViewController:  UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var selectedImage:UIImage?
+     var image:UIImage?
+    
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var usernameTextFiled: UITextField!
@@ -32,8 +34,14 @@ class SinUpViewController:  UIViewController, UIImagePickerControllerDelegate, U
        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SinUpViewController.handelSelectProfileImageView))
        profileImage.addGestureRecognizer(tapGesture)
         profileImage.isUserInteractionEnabled = true
-        
+        singupButton.setTitleColor(UIColor.lightText, for: UIControl.State.normal)
+        singupButton.isEnabled = false
         handleTextFiled()
+    }
+    
+    //dismiss the keybored
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     //prevent the user to send data with empty string in username\email\password using the sub function textFileDidChange
@@ -73,67 +81,39 @@ class SinUpViewController:  UIViewController, UIImagePickerControllerDelegate, U
             self.present(imagePicker, animated: true, completion: nil)
             
         }
-        print("we able to got here")
         
     }
 
     
     // UIImagePickerControllerDelegate
-  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-    
-    var selectedImage: UIImage?
-    if let editedImage = info[.editedImage] as? UIImage {
-        selectedImage = editedImage
-        self.profileImage.image = selectedImage!
-        picker.dismiss(animated: true, completion: nil)
-        print("we selcted")
-        
-    } else if let originalImage = info[.originalImage] as? UIImage {
-        selectedImage = originalImage
-        self.profileImage.image = selectedImage!
-        picker.dismiss(animated: true, completion: nil)
-         print("we didnt selcted")
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
+        image = info["UIImagePickerControllerOriginalImage"] as? UIImage
+        profileImage.image = image
+        self.dismiss(animated: true, completion: nil)
     }
-    }
-    
-    
+
     @IBAction func dismiss_Onclick(_ sender: Any) {
         dismiss(animated: true, completion: nil);
     }
     
     @IBAction func signUpBtn(_ sender: Any) {
-        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextFiled.text!) { (user, error) in
-            if (error != nil){
-                print(error!.localizedDescription)
-                return
+      
+        // save the image to firebsae
+        if image != nil {
+            print("image is not nil")
+            Model.instance.saveImage(image: image!, name: usernameTextFiled.text!){ (url:String?) in
+                var _url = ""
             }
-            var ref: DatabaseReference!
-            ref = Database.database().reference()
-           let userId = Auth.auth().currentUser!.uid
-            ref.self.child("users").child(userId).setValue(["username": self.usernameTextFiled.text! , "email": self.emailTextField.text!,"password": self.passwordTextFiled.text!])
-            // move to the home screen 
-             self.performSegue(withIdentifier: "singupToMenuVC", sender: nil)
-            
-            
-//            let storgeRef = Storage.storage().reference(forURL: "gs://barbergram-cdafb.appspot.com").child("profile_image").child(userId)
-//           // let data = Date()
-//            if let profileImg = self.selectedImage , let imageData = UIImage.jpegData(profileImg  , 0.8){
-//                storgeRef.putData(imageData, metadata: nil, completion: { (metadata,error)  in
-//                    if error != nil {
-//                        return
-//                    }
-//                    let profileImageUrl = metadata.downloadURL()?.absusoluteString
-//                })
-//            }
-            
-            
-            
-            
-         
         }
+        
+        let newUser = User(_email: emailTextField.text!, _username: usernameTextFiled.text!, _password: passwordTextFiled.text!, _imgUrl: "img")
+        
+        Model.instance.addNewUser(User: newUser)
+
+         self.performSegue(withIdentifier: "singupToMenuVC", sender: nil)
     }
-    
-    
 }
+    
+
 
 

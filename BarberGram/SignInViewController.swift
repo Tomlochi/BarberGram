@@ -16,8 +16,22 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        loginButton.isEnabled = false
         handleTextFiled()
+        
+    }
+    
+    // if the user already logged in we will send him to homepage
+    override func viewDidAppear(_ animated: Bool) {
+        if Auth.auth().currentUser != nil {
+            self.performSegue(withIdentifier: "singinToMenuVC", sender: nil)
+        }
+    }
+    
+    //dismiss the keybored 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     //prevent the user to send data with empty string in username\email\password using the sub function textFileDidChange
@@ -38,15 +52,20 @@ class SignInViewController: UIViewController {
     }
 
     @IBAction func signInButton_TouchUpInside(_ sender: Any) {
+
+//        Model.instance.userSignIn(email: emailTextFiled.text!, password: passwordTextFiled.text!, callback: (Bool) -> Void)
+        
         Auth.auth().signIn(withEmail: emailTextFiled.text!, password: passwordTextFiled.text!) { (user, error) in
             if error != nil {
                 print(error!.localizedDescription)
-                return
+                let alert = UIAlertController(title: "Invalied UserName or Password", message: "Itry again", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                
+                self.present(alert, animated: true)
             }else{
-                self.performSegue(withIdentifier: "singupToMenuVC", sender: nil)
+                 self.performSegue(withIdentifier: "singinToMenuVC", sender: nil)
             }
-            
-        }
+
     }
-    
+    }
 }
