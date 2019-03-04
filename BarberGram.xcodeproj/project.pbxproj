@@ -10,6 +10,7 @@
 		1375B4F9EB8D08C3516B0F93 /* Pods_BarberGramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7B34B5BDABAD9E94805D0D /* Pods_BarberGramTests.framework */; };
 		50E239B330E1A9AC69C9CECB /* Pods_BarberGram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9171A627C47844D8A77C2A /* Pods_BarberGram.framework */; };
 		713317551DA3F2B4D0D4BD44 /* Pods_BarberGramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769525D2C4009ABEA04BF92F /* Pods_BarberGramUITests.framework */; };
+		840E38CD222C9FAF000FA216 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E38CC222C9FAF000FA216 /* Post.swift */; };
 		84447CA22224549600EAB773 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84447CA12224549600EAB773 /* HomePageViewController.swift */; };
 		84447CA522245FF300EAB773 /* FireBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84447CA422245FF300EAB773 /* FireBaseModel.swift */; };
 		84447CA722245FFF00EAB773 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84447CA622245FFF00EAB773 /* Model.swift */; };
@@ -52,6 +53,7 @@
 		4F7B34B5BDABAD9E94805D0D /* Pods_BarberGramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarberGramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F9171A627C47844D8A77C2A /* Pods_BarberGram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarberGram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		769525D2C4009ABEA04BF92F /* Pods_BarberGramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarberGramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		840E38CC222C9FAF000FA216 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		84447CA12224549600EAB773 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		84447CA422245FF300EAB773 /* FireBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseModel.swift; sourceTree = "<group>"; };
 		84447CA622245FFF00EAB773 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				84447CA422245FF300EAB773 /* FireBaseModel.swift */,
 				84447CA622245FFF00EAB773 /* Model.swift */,
 				84447CA8222461BC00EAB773 /* User.swift */,
+				840E38CC222C9FAF000FA216 /* Post.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				848462C72221C1670045E4E9 /* ViewController.swift in Sources */,
 				848462C52221C1670045E4E9 /* AppDelegate.swift in Sources */,
 				848462FD2221CDBD0045E4E9 /* ActivityViewController.swift in Sources */,
+				840E38CD222C9FAF000FA216 /* Post.swift in Sources */,
 				848462F92221CD850045E4E9 /* DiscoverViewController.swift in Sources */,
 				848462FB2221CD900045E4E9 /* CameraViewController.swift in Sources */,
 				848462FF2221CDC70045E4E9 /* ProfileViewController.swift in Sources */,

@@ -8,13 +8,29 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 class HomePageViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    var posts = [Post]()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        tableView.dataSource = self
+        loadPost()
+        //var Post = Posts(captionText: "text", photoUrlString: "url")
+        
     }
+    
+    func loadPost(){
+        Database.database().reference().child("posts").observe(.childAdded){(snapshot:DataSnapshot) in
+            if let dict = snapshot.value as? [String:Any]{
+                let newPost = Post.transformPost(dict: dict)
+                self.posts.append(newPost)
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     
     @IBAction func logoutButton(_ sender: Any) {
       
@@ -31,3 +47,19 @@ class HomePageViewController: UIViewController {
     }
 
 }
+
+extension HomePageViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
+        cell.textLabel?.text = posts[indexPath.row].caption
+        return cell
+        
+    }
+}
+
+
+
