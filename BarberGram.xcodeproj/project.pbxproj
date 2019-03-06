@@ -11,6 +11,10 @@
 		50E239B330E1A9AC69C9CECB /* Pods_BarberGram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9171A627C47844D8A77C2A /* Pods_BarberGram.framework */; };
 		713317551DA3F2B4D0D4BD44 /* Pods_BarberGramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769525D2C4009ABEA04BF92F /* Pods_BarberGramUITests.framework */; };
 		840E38CD222C9FAF000FA216 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E38CC222C9FAF000FA216 /* Post.swift */; };
+		8424E78622301D35001E9D6D /* HomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424E78522301D35001E9D6D /* HomePageTableViewCell.swift */; };
+		8424E78822302851001E9D6D /* ModelSql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424E78722302851001E9D6D /* ModelSql.swift */; };
+		8424E78B22302A0E001E9D6D /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8424E78A22302A0E001E9D6D /* libsqlite3.0.tbd */; };
+		8424E79122302C64001E9D6D /* UserSql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424E79022302C64001E9D6D /* UserSql.swift */; };
 		84447CA22224549600EAB773 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84447CA12224549600EAB773 /* HomePageViewController.swift */; };
 		84447CA522245FF300EAB773 /* FireBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84447CA422245FF300EAB773 /* FireBaseModel.swift */; };
 		84447CA722245FFF00EAB773 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84447CA622245FFF00EAB773 /* Model.swift */; };
@@ -54,6 +58,11 @@
 		5F9171A627C47844D8A77C2A /* Pods_BarberGram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarberGram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		769525D2C4009ABEA04BF92F /* Pods_BarberGramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarberGramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		840E38CC222C9FAF000FA216 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		8424E78522301D35001E9D6D /* HomePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageTableViewCell.swift; sourceTree = "<group>"; };
+		8424E78722302851001E9D6D /* ModelSql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSql.swift; sourceTree = "<group>"; };
+		8424E78A22302A0E001E9D6D /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		8424E78D22302C09001E9D6D /* BarberGram-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BarberGram-Bridging-Header.h"; sourceTree = "<group>"; };
+		8424E79022302C64001E9D6D /* UserSql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSql.swift; sourceTree = "<group>"; };
 		84447CA12224549600EAB773 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		84447CA422245FF300EAB773 /* FireBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseModel.swift; sourceTree = "<group>"; };
 		84447CA622245FFF00EAB773 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -90,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8424E78B22302A0E001E9D6D /* libsqlite3.0.tbd in Frameworks */,
 				50E239B330E1A9AC69C9CECB /* Pods_BarberGram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,11 +126,20 @@
 		412B336D231EA5FEB88EF0FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8424E78A22302A0E001E9D6D /* libsqlite3.0.tbd */,
 				5F9171A627C47844D8A77C2A /* Pods_BarberGram.framework */,
 				4F7B34B5BDABAD9E94805D0D /* Pods_BarberGramTests.framework */,
 				769525D2C4009ABEA04BF92F /* Pods_BarberGramUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8424E78422301D0F001E9D6D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8424E78522301D35001E9D6D /* HomePageTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		84447CA322245FC000EAB773 /* Model */ = {
@@ -129,7 +148,10 @@
 				84447CA422245FF300EAB773 /* FireBaseModel.swift */,
 				84447CA622245FFF00EAB773 /* Model.swift */,
 				84447CA8222461BC00EAB773 /* User.swift */,
+				8424E78722302851001E9D6D /* ModelSql.swift */,
 				840E38CC222C9FAF000FA216 /* Post.swift */,
+				8424E78422301D0F001E9D6D /* Views */,
+				8424E79022302C64001E9D6D /* UserSql.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -174,6 +196,7 @@
 				848462CD2221C1690045E4E9 /* LaunchScreen.storyboard */,
 				848462D02221C1690045E4E9 /* Info.plist */,
 				848463022221D1670045E4E9 /* GoogleService-Info.plist */,
+				8424E78D22302C09001E9D6D /* BarberGram-Bridging-Header.h */,
 			);
 			path = BarberGram;
 			sourceTree = "<group>";
@@ -281,6 +304,7 @@
 				TargetAttributes = {
 					848462C02221C1670045E4E9 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 					848462D42221C16A0045E4E9 = {
 						CreatedOnToolsVersion = 10.0;
@@ -427,11 +451,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				848462F52221C3480045E4E9 /* SignInViewController.swift in Sources */,
+				8424E78622301D35001E9D6D /* HomePageTableViewCell.swift in Sources */,
 				848462C72221C1670045E4E9 /* ViewController.swift in Sources */,
 				848462C52221C1670045E4E9 /* AppDelegate.swift in Sources */,
 				848462FD2221CDBD0045E4E9 /* ActivityViewController.swift in Sources */,
 				840E38CD222C9FAF000FA216 /* Post.swift in Sources */,
 				848462F92221CD850045E4E9 /* DiscoverViewController.swift in Sources */,
+				8424E79122302C64001E9D6D /* UserSql.swift in Sources */,
+				8424E78822302851001E9D6D /* ModelSql.swift in Sources */,
 				848462FB2221CD900045E4E9 /* CameraViewController.swift in Sources */,
 				848462FF2221CDC70045E4E9 /* ProfileViewController.swift in Sources */,
 				84447CA22224549600EAB773 /* HomePageViewController.swift in Sources */,
@@ -614,6 +641,7 @@
 			baseConfigurationReference = BA14FB3E457B76B99C3F0817 /* Pods-BarberGram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D7682C7Q5G;
 				INFOPLIST_FILE = BarberGram/Info.plist;
@@ -624,6 +652,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = TS.BarberGram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "BarberGram/BarberGram-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -634,6 +665,7 @@
 			baseConfigurationReference = D46198A042102AB8090D085E /* Pods-BarberGram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D7682C7Q5G;
 				INFOPLIST_FILE = BarberGram/Info.plist;
@@ -644,6 +676,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = TS.BarberGram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "BarberGram/BarberGram-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

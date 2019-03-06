@@ -17,6 +17,11 @@ class HomePageViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         loadPost()
+        self.tableView.rowHeight = 600
+        self.tableView.estimatedRowHeight = 521
+        
+      
+        
         //var Post = Posts(captionText: "text", photoUrlString: "url")
         
     }
@@ -54,8 +59,17 @@ extension HomePageViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
-        cell.textLabel?.text = posts[indexPath.row].caption
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! HomePageTableViewCell
+        let post = posts[indexPath.row]
+        cell.captionLabel.text = post.caption
+        cell.profileImage.image = UIImage(named: "photo1.jpeg")
+        cell.nameLabel.text = "Tom"
+        cell.postImageView.image = UIImage(named: "photo2.jpeg")
+        
+        cell.profileImage.layer.cornerRadius = 18
+        cell.profileImage.clipsToBounds = true
+        
+    
         return cell
         
     }
