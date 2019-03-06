@@ -1,0 +1,6 @@
+framework module Pods_BarberGram {
+  umbrella header "Pods-BarberGram-umbrella.h"
+
+  export *
+  module * { export * }
+}
