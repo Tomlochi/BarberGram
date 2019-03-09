@@ -59,12 +59,12 @@ extension User{
         
         if (sqlite3_prepare_v2(database,"INSERT OR REPLACE INTO USERS(USER_EMAIL, USERNAME, IMGURL) VALUES (?,?,?);",-1, &sqlite3_stmt,nil) == SQLITE_OK){
             
-            let email = user.email.cString(using: .utf8)
+            let email = user.email?.cString(using: .utf8)
             
-            let userName = user.username.cString(using: .utf8)
+            let userName = user.username?.cString(using: .utf8)
             
-            let imgUrl = user.imgUrl.cString(using: .utf8)
-
+            let imgUrl = user.imgUrl?.cString(using: .utf8)
+            
             sqlite3_bind_text(sqlite3_stmt, 1, email,-1,nil);
             
             sqlite3_bind_text(sqlite3_stmt, 2, userName,-1,nil);

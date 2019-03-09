@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseStorage
+import ProgressHUD
 
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -21,7 +22,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handelSelectPhoto))
         photo.addGestureRecognizer(tapGesture)
         photo.isUserInteractionEnabled = true
@@ -39,13 +40,13 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func handlePost(){
         if image != nil {
-        self.shareButton.isEnabled = true
+            self.shareButton.isEnabled = true
             self.removeButton.isEnabled = true
             self.shareButton.backgroundColor = UIColor(red:0,green:0,blue:0,alpha:1)
         }else {
-        self.shareButton.isEnabled = false
-             self.removeButton.isEnabled = false
-              self.shareButton.backgroundColor = .lightGray
+            self.shareButton.isEnabled = false
+            self.removeButton.isEnabled = false
+            self.shareButton.backgroundColor = .lightGray
         }
     }
     
@@ -76,54 +77,15 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.dismiss(animated: true, completion: nil)
     }
     
-
+    
     
     @IBAction func shatrButton_touchUp(_ sender: Any) {
-        view.endEditing(true)
-//        if image != nil {
-//            Model.instance.saveImage(image: image!, name: "tom"){ (url:String?) in
-//                var _url = ""
-//                if url != nil {
-//                    _url = url!
-//                }
-//            }
-//        }
-//         let photoUrl = downloadURL.absoluteString
-//         self.sendDataToDatabase(photoUrl: photoUrl)
+        ProgressHUD.show("Uploading", interaction: false)
+        let userInstance = User(_email: captionTextView.text!)
+        Model.instance.saveImage(image: self.image!, child: "posts",isProfileImage: false , UserWithDetails : userInstance)
         
-        
-        
-        //var data = Data()
-        //data = self.photo.image!.pngData()!
-        let imageData = UIImageJPEGRepresentation(image!, 0.75)
-        let ref = Database.database().reference()
-        let photoId = ref.childByAutoId().key
-
-        let imageRef = Storage.storage().reference(forURL: "gs://barbergram-cdafb.appspot.com/").child("posts").child(photoId!)
-        _ = imageRef.putData(imageData!, metadata: nil, completion: {(metadata, error) in
-            if error != nil {
-                return
-            }
-            _ = imageRef.downloadURL { (url, error) in
-                guard let downloadURL = url else {  return }// Uh-oh, an error occurred!
-
-                let photoUrl = downloadURL.absoluteString
-                self.sendDataToDatabase(photoUrl: photoUrl)
-            }
-
-        })
-   }
-    
-    func sendDataToDatabase(photoUrl: String){
-        let ref = Database.database().reference()
-        let postReference = ref.child("posts")
-        let newPhotoId = postReference.childByAutoId().key
-        let newPostReference = postReference.child(newPhotoId!)
-        newPostReference.setValue(["photoUrl": photoUrl, "caption": captionTextView.text!])
-       
         self.clean()
         self.tabBarController?.selectedIndex = 0
-        
     }
     
     @IBAction func RemoveTouchUpInside(_ sender: Any) {
@@ -137,5 +99,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.image = nil
     }
     
-
+    
 }
+
+

@@ -9,20 +9,19 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
-class HomePageViewController: UIViewController {
+import SDWebImage
 
+class HomePageViewController: UIViewController {
+    
     @IBOutlet weak var tableView: UITableView!
     var posts = [Post]()
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         loadPost()
+        
         self.tableView.rowHeight = 600
         self.tableView.estimatedRowHeight = 521
-        
-      
-        
-        //var Post = Posts(captionText: "text", photoUrlString: "url")
         
     }
     
@@ -38,9 +37,9 @@ class HomePageViewController: UIViewController {
     
     
     @IBAction func logoutButton(_ sender: Any) {
-      
+        
         do {
-       try  Auth.auth().signOut()
+            try  Auth.auth().signOut()
         }catch let logoutError{
             print (logoutError)
         }
@@ -50,7 +49,7 @@ class HomePageViewController: UIViewController {
         let signInVc = storyBoard.instantiateInitialViewController()
         self.present(signInVc!, animated: true, completion: nil)
     }
-
+    
 }
 
 extension HomePageViewController: UITableViewDataSource{
@@ -61,15 +60,13 @@ extension HomePageViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! HomePageTableViewCell
         let post = posts[indexPath.row]
-        cell.captionLabel.text = post.caption
-        cell.profileImage.image = UIImage(named: "photo1.jpeg")
-        cell.nameLabel.text = "Tom"
-        cell.postImageView.image = UIImage(named: "photo2.jpeg")
+        cell.post = post
+        
         
         cell.profileImage.layer.cornerRadius = 18
         cell.profileImage.clipsToBounds = true
         
-    
+        
         return cell
         
     }

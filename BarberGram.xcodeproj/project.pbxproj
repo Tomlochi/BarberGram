@@ -150,7 +150,6 @@
 				84447CA8222461BC00EAB773 /* User.swift */,
 				8424E78722302851001E9D6D /* ModelSql.swift */,
 				840E38CC222C9FAF000FA216 /* Post.swift */,
-				8424E78422301D0F001E9D6D /* Views */,
 				8424E79022302C64001E9D6D /* UserSql.swift */,
 			);
 			path = Model;
@@ -183,15 +182,9 @@
 			children = (
 				84447CA322245FC000EAB773 /* Model */,
 				848462C42221C1670045E4E9 /* AppDelegate.swift */,
-				848462C62221C1670045E4E9 /* ViewController.swift */,
-				848462F82221CD850045E4E9 /* DiscoverViewController.swift */,
-				848462FA2221CD900045E4E9 /* CameraViewController.swift */,
-				84447CA12224549600EAB773 /* HomePageViewController.swift */,
-				848462FC2221CDBD0045E4E9 /* ActivityViewController.swift */,
-				848462FE2221CDC70045E4E9 /* ProfileViewController.swift */,
-				848462F42221C3480045E4E9 /* SignInViewController.swift */,
+				8424E78422301D0F001E9D6D /* Views */,
+				84A0C88C2233CEF400BD2287 /* ViewController */,
 				848462C82221C1670045E4E9 /* Main.storyboard */,
-				848462F22221C3380045E4E9 /* SinUpViewController.swift */,
 				848462CB2221C1690045E4E9 /* Assets.xcassets */,
 				848462CD2221C1690045E4E9 /* LaunchScreen.storyboard */,
 				848462D02221C1690045E4E9 /* Info.plist */,
@@ -217,6 +210,21 @@
 				848462E62221C16A0045E4E9 /* Info.plist */,
 			);
 			path = BarberGramUITests;
+			sourceTree = "<group>";
+		};
+		84A0C88C2233CEF400BD2287 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				848462C62221C1670045E4E9 /* ViewController.swift */,
+				848462F82221CD850045E4E9 /* DiscoverViewController.swift */,
+				848462FA2221CD900045E4E9 /* CameraViewController.swift */,
+				848462F22221C3380045E4E9 /* SinUpViewController.swift */,
+				84447CA12224549600EAB773 /* HomePageViewController.swift */,
+				848462FC2221CDBD0045E4E9 /* ActivityViewController.swift */,
+				848462FE2221CDC70045E4E9 /* ProfileViewController.swift */,
+				848462F42221C3480045E4E9 /* SignInViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		85FE90F038EB953F8A29E3D8 /* Pods */ = {
@@ -410,6 +418,8 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-BarberGram/Pods-BarberGram-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/ProgressHUD/ProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -417,6 +427,8 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);

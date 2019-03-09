@@ -10,30 +10,31 @@ import Foundation
 
 import Firebase
 import FirebaseDatabase
+import ProgressHUD
 
 class ModelFireBase{
     var ref: DatabaseReference!
     let storageRef = Storage.storage().reference()
-    
+    var cameraVC: CameraViewController?
     init() {
         ref = Database.database().reference()
-       
-}
+        //    cameraVC = self as? CameraViewController
+        
+    }
     
     func createNewUser(User:User){
-        Auth.auth().createUser(withEmail: User.email, password: User.password) { (user, error) in
+        Auth.auth().createUser(withEmail: User.email!, password: User.password!) { (user, error) in
             if (error != nil){
                 print(error!.localizedDescription)
                 return
             }
-            var ref: DatabaseReference!
-            ref = Database.database().reference()
-            let userId = Auth.auth().currentUser!.uid
-            ref.self.child("users").child(userId).setValue(User.toJson())
-        
-          
+        }
     }
-}
+    
+    func addUserDetails(User:User){
+        let userId = Auth.auth().currentUser!.uid
+        self.ref.self.child("users").child(userId).setValue(User.toJson())
+    }
     
     func singIn(email:String, password:String, callback:@escaping (Bool)->Void){
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
@@ -43,47 +44,51 @@ class ModelFireBase{
             }else{
                 callback(true)
             }
-            
         }
     }
     
-//    lazy var storageRef = Storage.storage().reference(forURL:
-//        "gs://barbergram-cdafb.appspot.com")
     
-    
-    func saveImage(image:UIImage, name:(String),
-                   callback:@escaping (String?)->Void){
-        let data = UIImageJPEGRepresentation(image,0.8)
-        let imageRef = storageRef.child(name)
+    func uploadPhoto(image : UIImage , child : String,IsProfileImage:Bool,UserDetails:User){
+        let imageData = UIImageJPEGRepresentation(image, 0.75)
+        let userId = ref.childByAutoId().key
         
-        let metadata = StorageMetadata()
-        metadata.contentType = "image/jpeg"
-        storageRef.child(name)
-        imageRef.putData(data!, metadata: metadata) { (metadata, error) in
-            imageRef.downloadURL { (url, error) in
-                guard let downloadURL = url else {
-                    // Uh-oh, an error occurred!
-                    return
-                }
-                print("url: \(downloadURL)")
-                callback(downloadURL.absoluteString)
-            }
-        }
-    }
-    
-    func getImage(url:String, callback:@escaping (UIImage?)->Void){
-        let ref = Storage.storage().reference(forURL: url)
-        ref.getData(maxSize: 10 * 1024 * 1024) { data, error in
+        let imageRef = Storage.storage().reference(forURL: "gs://barbergram-cdafb.appspot.com/").child(child).child(userId!)
+        _ = imageRef.putData(imageData!, metadata: nil, completion: {(metadata, error) in
             if error != nil {
-                callback(nil)
-            } else {
-                let image = UIImage(data: data!)
-                callback(image)
+                print(error!.localizedDescription)
+                return
             }
-        }
+            _ = imageRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {  return }// Uh-oh, an error occurred!
+                
+                let photoUrl = downloadURL.absoluteString
+                if (IsProfileImage){
+                    let newUser = User(_email: UserDetails.email!, _username: UserDetails.username!, _password: UserDetails.password!, _imgUrl: photoUrl)
+                    self.addUserDetails(User: newUser)
+                }else{
+                    self.sendImageDataToDatabase(photoUrl: photoUrl,caption: UserDetails.email!)
+                }
+                
+            }
+            
+        })
+        
+        
     }
     
-    
+    func sendImageDataToDatabase(photoUrl: String, caption:String){
+        let ref = Database.database().reference()
+        let postReference = ref.child("posts")
+        let newPhotoId = postReference.childByAutoId().key
+        let newPostReference = postReference.child(newPhotoId!)
+        let userId = Auth.auth().currentUser!.uid
+        newPostReference.setValue(["uid": userId,"photoUrl": photoUrl, "caption": caption])
+        
+        ProgressHUD.showSuccess("Seccess")
+    }
     
     
 }
+
+
+

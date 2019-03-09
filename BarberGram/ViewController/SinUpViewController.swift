@@ -7,14 +7,14 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
 class SinUpViewController:  UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var selectedImage:UIImage?
-     var image:UIImage?
+    var image:UIImage?
     
     
     @IBOutlet weak var profileImage: UIImageView!
@@ -23,7 +23,7 @@ class SinUpViewController:  UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var passwordTextFiled: UITextField!
     @IBOutlet weak var singupButton: UIButton!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // stayling the photo icon
@@ -31,8 +31,8 @@ class SinUpViewController:  UIViewController, UIImagePickerControllerDelegate, U
         profileImage.clipsToBounds = true
         
         // clicking on to image icon open libary
-       let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SinUpViewController.handelSelectProfileImageView))
-       profileImage.addGestureRecognizer(tapGesture)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SinUpViewController.handelSelectProfileImageView))
+        profileImage.addGestureRecognizer(tapGesture)
         profileImage.isUserInteractionEnabled = true
         singupButton.setTitleColor(UIColor.lightText, for: UIControl.State.normal)
         singupButton.isEnabled = false
@@ -54,12 +54,12 @@ class SinUpViewController:  UIViewController, UIImagePickerControllerDelegate, U
     @objc func textFileDidChange() {
         guard let username = usernameTextFiled.text, !username.isEmpty, let email = emailTextField.text, !email.isEmpty,
             let password = passwordTextFiled.text, !password.isEmpty else {
-            singupButton.setTitleColor(UIColor.lightText, for: UIControl.State.normal)
+                singupButton.setTitleColor(UIColor.lightText, for: UIControl.State.normal)
                 singupButton.isEnabled = false
                 return
         }
         singupButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
-          singupButton.isEnabled = true
+        singupButton.isEnabled = true
     }
     
     
@@ -83,7 +83,7 @@ class SinUpViewController:  UIViewController, UIImagePickerControllerDelegate, U
         }
         
     }
-
+    
     
     // UIImagePickerControllerDelegate
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
@@ -91,29 +91,29 @@ class SinUpViewController:  UIViewController, UIImagePickerControllerDelegate, U
         profileImage.image = image
         self.dismiss(animated: true, completion: nil)
     }
-
+    
     @IBAction func dismiss_Onclick(_ sender: Any) {
         dismiss(animated: true, completion: nil);
     }
     
     @IBAction func signUpBtn(_ sender: Any) {
-      
-        // save the image to firebsae
-        if image != nil {
-            print("image is not nil")
-            Model.instance.saveImage(image: image!, name: usernameTextFiled.text!){ (url:String?) in
-                var _url = ""
+        
+        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextFiled.text!) { user, error in
+            if error != nil {
+                print(error!.localizedDescription)
+                return
             }
+            
+            let newUserWithAllDetails = User(_email: self.emailTextField.text!, _username: self.usernameTextFiled.text!, _password: self.passwordTextFiled.text!)
+            
+            Model.instance.saveImage(image: self.image!, child: "users",isProfileImage: true , UserWithDetails : newUserWithAllDetails)
+            
+            self.performSegue(withIdentifier: "singupToMenuVC", sender: nil)
         }
         
-        let newUser = User(_email: emailTextField.text!, _username: usernameTextFiled.text!, _password: passwordTextFiled.text!, _imgUrl: "img")
-        
-        Model.instance.addNewUser(User: newUser)
-
-         self.performSegue(withIdentifier: "singupToMenuVC", sender: nil)
     }
 }
-    
+
 
 
 
