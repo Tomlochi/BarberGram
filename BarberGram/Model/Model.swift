@@ -25,12 +25,21 @@ class Model {
         modelFirebase.singIn(email: email, password: password, callback: callback)
     }
     
+//    func userSignIn(email : String, password : String)->Bool {
+//        if (modelFirebase.singIn(email: email, password: password)){
+//            return true
+//        }else {
+//            return false
+//        }
+//    }
+    
     func saveImage(image:UIImage , child:String, isProfileImage:Bool,UserWithDetails:User){
         modelFirebase.uploadPhoto(image: image, child: child,IsProfileImage: isProfileImage , UserDetails :UserWithDetails)
     }
     
-    
-    
+    func sendCommentDataToDatabase(comment: String){
+        modelFirebase.sendCommentDataToDatabase(comment: comment)
+    }
     
     
 }

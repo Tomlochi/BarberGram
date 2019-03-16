@@ -20,7 +20,6 @@
 		84447CA722245FFF00EAB773 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84447CA622245FFF00EAB773 /* Model.swift */; };
 		84447CA9222461BC00EAB773 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84447CA8222461BC00EAB773 /* User.swift */; };
 		848462C52221C1670045E4E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848462C42221C1670045E4E9 /* AppDelegate.swift */; };
-		848462C72221C1670045E4E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848462C62221C1670045E4E9 /* ViewController.swift */; };
 		848462CA2221C1670045E4E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848462C82221C1670045E4E9 /* Main.storyboard */; };
 		848462CC2221C1690045E4E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 848462CB2221C1690045E4E9 /* Assets.xcassets */; };
 		848462CF2221C1690045E4E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848462CD2221C1690045E4E9 /* LaunchScreen.storyboard */; };
@@ -33,6 +32,9 @@
 		848462FD2221CDBD0045E4E9 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848462FC2221CDBD0045E4E9 /* ActivityViewController.swift */; };
 		848462FF2221CDC70045E4E9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848462FE2221CDC70045E4E9 /* ProfileViewController.swift */; };
 		848463032221D1670045E4E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 848463022221D1670045E4E9 /* GoogleService-Info.plist */; };
+		849422EF223D0DD000D63D3C /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849422EE223D0DD000D63D3C /* CommentViewController.swift */; };
+		849422F3223D0F3F00D63D3C /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849422F2223D0F3F00D63D3C /* CommentTableViewCell.swift */; };
+		849422F5223D541E00D63D3C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849422F4223D541E00D63D3C /* Comment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +71,6 @@
 		84447CA8222461BC00EAB773 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		848462C12221C1670045E4E9 /* BarberGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarberGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		848462C42221C1670045E4E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		848462C62221C1670045E4E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		848462C92221C1670045E4E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		848462CB2221C1690045E4E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		848462CE2221C1690045E4E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -87,6 +88,9 @@
 		848462FC2221CDBD0045E4E9 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		848462FE2221CDC70045E4E9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		848463022221D1670045E4E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		849422EE223D0DD000D63D3C /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		849422F2223D0F3F00D63D3C /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		849422F4223D541E00D63D3C /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		B287719D5E95C84A89FFE017 /* Pods-BarberGramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarberGramTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BarberGramTests/Pods-BarberGramTests.release.xcconfig"; sourceTree = "<group>"; };
 		BA14FB3E457B76B99C3F0817 /* Pods-BarberGram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarberGram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BarberGram/Pods-BarberGram.debug.xcconfig"; sourceTree = "<group>"; };
 		D0857E70BE77449DCEB5FD99 /* Pods-BarberGramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarberGramUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BarberGramUITests/Pods-BarberGramUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				8424E78522301D35001E9D6D /* HomePageTableViewCell.swift */,
+				849422F2223D0F3F00D63D3C /* CommentTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 				8424E78722302851001E9D6D /* ModelSql.swift */,
 				840E38CC222C9FAF000FA216 /* Post.swift */,
 				8424E79022302C64001E9D6D /* UserSql.swift */,
+				849422F4223D541E00D63D3C /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -215,12 +221,12 @@
 		84A0C88C2233CEF400BD2287 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				848462C62221C1670045E4E9 /* ViewController.swift */,
 				848462F82221CD850045E4E9 /* DiscoverViewController.swift */,
 				848462FA2221CD900045E4E9 /* CameraViewController.swift */,
 				848462F22221C3380045E4E9 /* SinUpViewController.swift */,
 				84447CA12224549600EAB773 /* HomePageViewController.swift */,
 				848462FC2221CDBD0045E4E9 /* ActivityViewController.swift */,
+				849422EE223D0DD000D63D3C /* CommentViewController.swift */,
 				848462FE2221CDC70045E4E9 /* ProfileViewController.swift */,
 				848462F42221C3480045E4E9 /* SignInViewController.swift */,
 			);
@@ -464,13 +470,15 @@
 			files = (
 				848462F52221C3480045E4E9 /* SignInViewController.swift in Sources */,
 				8424E78622301D35001E9D6D /* HomePageTableViewCell.swift in Sources */,
-				848462C72221C1670045E4E9 /* ViewController.swift in Sources */,
 				848462C52221C1670045E4E9 /* AppDelegate.swift in Sources */,
 				848462FD2221CDBD0045E4E9 /* ActivityViewController.swift in Sources */,
 				840E38CD222C9FAF000FA216 /* Post.swift in Sources */,
 				848462F92221CD850045E4E9 /* DiscoverViewController.swift in Sources */,
+				849422F3223D0F3F00D63D3C /* CommentTableViewCell.swift in Sources */,
+				849422F5223D541E00D63D3C /* Comment.swift in Sources */,
 				8424E79122302C64001E9D6D /* UserSql.swift in Sources */,
 				8424E78822302851001E9D6D /* ModelSql.swift in Sources */,
+				849422EF223D0DD000D63D3C /* CommentViewController.swift in Sources */,
 				848462FB2221CD900045E4E9 /* CameraViewController.swift in Sources */,
 				848462FF2221CDC70045E4E9 /* ProfileViewController.swift in Sources */,
 				84447CA22224549600EAB773 /* HomePageViewController.swift in Sources */,

@@ -53,19 +53,26 @@ class SignInViewController: UIViewController {
 
     @IBAction func signInButton_TouchUpInside(_ sender: Any) {
 
-//        Model.instance.userSignIn(email: emailTextFiled.text!, password: passwordTextFiled.text!, callback: (Bool) -> Void)
+//        if (Model.instance.userSignIn(email: emailTextFiled.text!, password: passwordTextFiled.text!)){
+//            self.performSegue(withIdentifier: "singinToMenuVC", sender: nil)
+//        }
+//        else {
+//            let alert = UIAlertController(title: "Invalied UserName or Password", message: "Itry again", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+//            self.present(alert, animated: true)
+//        }
         
         Auth.auth().signIn(withEmail: emailTextFiled.text!, password: passwordTextFiled.text!) { (user, error) in
             if error != nil {
                 print(error!.localizedDescription)
                 let alert = UIAlertController(title: "Invalied UserName or Password", message: "Itry again", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-                
+
                 self.present(alert, animated: true)
             }else{
                  self.performSegue(withIdentifier: "singinToMenuVC", sender: nil)
             }
-
     }
+        
     }
 }

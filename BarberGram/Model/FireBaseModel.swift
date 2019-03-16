@@ -47,6 +47,19 @@ class ModelFireBase{
         }
     }
     
+//    func singIn(email:String, password:String)->Bool{
+//        var flag = true
+//        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+//            if error != nil {
+//                print(error!.localizedDescription)
+//                print("we have errro")
+//                flag = false
+//            }
+//        }
+//         return flag
+//    }
+
+    
     
     func uploadPhoto(image : UIImage , child : String,IsProfileImage:Bool,UserDetails:User){
         let imageData = UIImageJPEGRepresentation(image, 0.75)
@@ -87,8 +100,25 @@ class ModelFireBase{
         ProgressHUD.showSuccess("Seccess")
     }
     
+    func sendCommentDataToDatabase(comment: String){
+        let ref = Database.database().reference()
+        let commentReference = ref.child("comments")
+        let newCommentId = commentReference.childByAutoId().key
+        let newCommentReference = commentReference.child(newCommentId!)
+        let userId = Auth.auth().currentUser!.uid
+        newCommentReference.setValue(["uid": userId,"commentText": comment])
+        
+        let postId = "La61qXpVvv-vvm_Y__9"
+        let postCommentRef = ref.child("post-comments").child(postId).child(newCommentId!)
+        postCommentRef.setValue(true)
+        
+        ProgressHUD.showSuccess("Seccess")
+    }
+    
     
 }
 
 
 
+// Todo
+// sign in and logout (logout from homepageviewcontroller)

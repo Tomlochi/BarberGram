@@ -13,6 +13,7 @@ import SDWebImage
 
 class HomePageViewController: UIViewController {
     
+    @IBOutlet weak var activityView: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     var posts = [Post]()
     override func viewDidLoad() {
@@ -26,15 +27,20 @@ class HomePageViewController: UIViewController {
     }
     
     func loadPost(){
-        Database.database().reference().child("posts").observe(.childAdded){(snapshot:DataSnapshot) in
+        activityView.startAnimating(); Database.database().reference().child("posts").observe(.childAdded){(snapshot:DataSnapshot) in
             if let dict = snapshot.value as? [String:Any]{
                 let newPost = Post.transformPost(dict: dict)
                 self.posts.append(newPost)
+                self.activityView.stopAnimating()
                 self.tableView.reloadData()
             }
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
     
     @IBAction func logoutButton(_ sender: Any) {
         
@@ -61,8 +67,6 @@ extension HomePageViewController: UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! HomePageTableViewCell
         let post = posts[indexPath.row]
         cell.post = post
-        
-        
         cell.profileImage.layer.cornerRadius = 18
         cell.profileImage.clipsToBounds = true
         
