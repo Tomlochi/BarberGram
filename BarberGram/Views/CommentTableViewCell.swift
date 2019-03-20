@@ -8,9 +8,8 @@
 
 import UIKit
 import Firebase
-
 class CommentTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var progileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
@@ -23,34 +22,38 @@ class CommentTableViewCell: UITableViewCell {
             updateView()
         }
     }
-
+    
     
     func updateView()
     {
         commentLabel.text = comment?.commentText
         setUpUserInfo()
     }
-    func setUpUserInfo(){
-        if let uid = comment?.uid{
-            Database.database().reference().child("users").child(uid).observeSingleEvent(of: DataEventType.value, with: {
-                snapshot in
-                if let dict = snapshot.value as? [String:Any]{
-                    let user = User.transformUser(dict: dict)
-                    self.nameLabel.text = user.username
-                    if let photoUrlString = user.imgUrl{
-                        let photoUrl = URL(string: photoUrlString)
-                        self.progileImage.sd_setImage(with: photoUrl)
+    
+    
+        func setUpUserInfo(){
+            if let uid = comment?.uid{
+                Database.database().reference().child("users").child(uid).observeSingleEvent(of: DataEventType.value, with: {
+                    snapshot in
+                    if let dict = snapshot.value as? [String:Any]{
+                        let user = User.transformUser(dict: dict)
+                        self.nameLabel.text = user.username
+                        if let photoUrlString = user.imgUrl{
+                            let photoUrl = URL(string: photoUrlString)
+                            self.progileImage.sd_setImage(with: photoUrl)
+                        }
+    
                     }
-                    
-                }
-            })
+                })
+            }
         }
-    }
-
+    
+    
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }

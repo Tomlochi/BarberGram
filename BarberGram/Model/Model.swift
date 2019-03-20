@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import ProgressHUD
 class Model {
     static let instance:Model = Model()
     
@@ -25,15 +25,9 @@ class Model {
         modelFirebase.singIn(email: email, password: password, callback: callback)
     }
     
-//    func userSignIn(email : String, password : String)->Bool {
-//        if (modelFirebase.singIn(email: email, password: password)){
-//            return true
-//        }else {
-//            return false
-//        }
-//    }
     
     func saveImage(image:UIImage , child:String, isProfileImage:Bool,UserWithDetails:User){
+       
         modelFirebase.uploadPhoto(image: image, child: child,IsProfileImage: isProfileImage , UserDetails :UserWithDetails)
     }
     
@@ -41,5 +35,31 @@ class Model {
         modelFirebase.sendCommentDataToDatabase(comment: comment, postId: postId)
     }
     
+    func setUpUserInfobyComment(comment : Comment) -> User{
+        let user = modelFirebase.setUpUserInfobyComment(comment: comment)
+        return (user)
+        
+    }
     
+    func setUpUserInfobyPost(post : Post) -> User{
+        let user = modelFirebase.setUpUserInfobyPost(post: post)
+        return (user)
+        
+    }
+    
+    func isSignIn() -> Bool{
+        if(modelFirebase.isSignIn()){
+            return true
+        }else{
+            return false
+        }
+    }
+    
+    func SignIn(email: String , password:String) -> Bool {
+        if(modelFirebase.SignIn(email: email, password: password)){
+            return true
+        }else {
+            return false
+        }
+    }
 }

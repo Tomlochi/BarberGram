@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseDatabase
 extension User{
     static func createTable(database: OpaquePointer?)  {
         
@@ -86,7 +87,61 @@ extension User{
         
     }
     
+//    func getDocumentsDirectory() -> URL {
+//
+//        let paths = FileManager.default.urls(for: .documentDirectory, in:
+//            
+//            .userDomainMask)
+//
+//        let documentsDirectory = paths[0]
+//
+//        return documentsDirectory
+//
+//    }
+ 
+//    static func getImageFromFile(name:String)->UIImage?{
+//        let filename = self.getDocumentsDirectory().appendingPathComponent(name)
+//        return UIImage(contentsOfFile:filename.path)
+//
+//    }
     
+    
+    
+//    static func tryGetImageFromCache(url:String, callback:@escaping (UIImage?)->Void){
+//
+//        let _url = URL(string: url)
+//
+//        let localImageName = _url!.lastPathComponent
+//
+//        if let image = self.getImageFromFile(name: localImageName){
+//
+//            callback(image)
+//
+//            print("got image from cache \(localImageName)")
+//
+//        }
+//
+//    }
+//
+    
+    
+//    static func setUpUserInfo(uid : String){
+//        let ProfileImage = UIImageView()
+//        Database.database().reference().child("users").child(uid).observeSingleEvent(of: DataEventType.value, with: {
+//            snapshot in
+//            if let dict = snapshot.value as? [String:Any]{
+//                let user = User.transformUser(dict: dict)
+//                if let photoUrlString = user.imgUrl{
+//                    let photoUrl = URL(string: photoUrlString)
+//                    tryGetImageFromCache(url: photoUrlString){ (image:UIImage?) in
+//                        ProfileImage.image = image
+//                    }
+//                    ProfileImage.sd_setImage(with: photoUrl)
+//                }
+//            }
+//
+//        })
+//    }
     
 }
 

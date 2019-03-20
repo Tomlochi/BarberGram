@@ -42,8 +42,6 @@ class ProfileViewController: UIViewController {
                 if(currentUserId == post.uid){
                     self.posts.append(post)
                 }
-                
-                
                 self.tableView.reloadData()
             }
         }

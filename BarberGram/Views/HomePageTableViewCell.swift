@@ -44,6 +44,9 @@ class HomePageTableViewCell: UITableViewCell {
         }
         
     }
+    
+    
+    
     func setUpUserInfo(){
         if let uid = post?.uid{
             Database.database().reference().child("users").child(uid).observeSingleEvent(of: DataEventType.value, with: {
@@ -54,9 +57,9 @@ class HomePageTableViewCell: UITableViewCell {
                     if let photoUrlString = user.imgUrl{
                         let photoUrl = URL(string: photoUrlString)
                         self.profileImage.sd_setImage(with: photoUrl)
-                        
+
                     }
-                    
+
                 }
             })
         }

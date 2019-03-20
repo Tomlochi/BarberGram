@@ -27,9 +27,7 @@
 		848462E52221C16A0045E4E9 /* BarberGramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848462E42221C16A0045E4E9 /* BarberGramUITests.swift */; };
 		848462F32221C3380045E4E9 /* SinUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848462F22221C3380045E4E9 /* SinUpViewController.swift */; };
 		848462F52221C3480045E4E9 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848462F42221C3480045E4E9 /* SignInViewController.swift */; };
-		848462F92221CD850045E4E9 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848462F82221CD850045E4E9 /* DiscoverViewController.swift */; };
 		848462FB2221CD900045E4E9 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848462FA2221CD900045E4E9 /* CameraViewController.swift */; };
-		848462FD2221CDBD0045E4E9 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848462FC2221CDBD0045E4E9 /* ActivityViewController.swift */; };
 		848462FF2221CDC70045E4E9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848462FE2221CDC70045E4E9 /* ProfileViewController.swift */; };
 		848463032221D1670045E4E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 848463022221D1670045E4E9 /* GoogleService-Info.plist */; };
 		849422EF223D0DD000D63D3C /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849422EE223D0DD000D63D3C /* CommentViewController.swift */; };
@@ -85,9 +83,7 @@
 		848462E62221C16A0045E4E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		848462F22221C3380045E4E9 /* SinUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinUpViewController.swift; sourceTree = "<group>"; };
 		848462F42221C3480045E4E9 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		848462F82221CD850045E4E9 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		848462FA2221CD900045E4E9 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		848462FC2221CDBD0045E4E9 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		848462FE2221CDC70045E4E9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		848463022221D1670045E4E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		849422EE223D0DD000D63D3C /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
@@ -227,11 +223,9 @@
 		84A0C88C2233CEF400BD2287 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				848462F82221CD850045E4E9 /* DiscoverViewController.swift */,
 				848462FA2221CD900045E4E9 /* CameraViewController.swift */,
 				848462F22221C3380045E4E9 /* SinUpViewController.swift */,
 				84447CA12224549600EAB773 /* HomePageViewController.swift */,
-				848462FC2221CDBD0045E4E9 /* ActivityViewController.swift */,
 				849422EE223D0DD000D63D3C /* CommentViewController.swift */,
 				848462FE2221CDC70045E4E9 /* ProfileViewController.swift */,
 				848462F42221C3480045E4E9 /* SignInViewController.swift */,
@@ -477,9 +471,7 @@
 				848462F52221C3480045E4E9 /* SignInViewController.swift in Sources */,
 				8424E78622301D35001E9D6D /* HomePageTableViewCell.swift in Sources */,
 				848462C52221C1670045E4E9 /* AppDelegate.swift in Sources */,
-				848462FD2221CDBD0045E4E9 /* ActivityViewController.swift in Sources */,
 				840E38CD222C9FAF000FA216 /* Post.swift in Sources */,
-				848462F92221CD850045E4E9 /* DiscoverViewController.swift in Sources */,
 				849422F3223D0F3F00D63D3C /* CommentTableViewCell.swift in Sources */,
 				849422F5223D541E00D63D3C /* Comment.swift in Sources */,
 				8424E79122302C64001E9D6D /* UserSql.swift in Sources */,

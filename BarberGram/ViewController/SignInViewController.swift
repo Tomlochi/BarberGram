@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 class SignInViewController: UIViewController {
-
+    
     @IBOutlet weak var emailTextFiled: UITextField!
     @IBOutlet weak var passwordTextFiled: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -24,7 +24,7 @@ class SignInViewController: UIViewController {
     
     // if the user already logged in we will send him to homepage
     override func viewDidAppear(_ animated: Bool) {
-        if Auth.auth().currentUser != nil {
+        if  (Model.instance.isSignIn()){
             self.performSegue(withIdentifier: "singinToMenuVC", sender: nil)
         }
     }
@@ -50,17 +50,8 @@ class SignInViewController: UIViewController {
         loginButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
         loginButton.isEnabled = true
     }
-
+    
     @IBAction func signInButton_TouchUpInside(_ sender: Any) {
-
-//        if (Model.instance.userSignIn(email: emailTextFiled.text!, password: passwordTextFiled.text!)){
-//            self.performSegue(withIdentifier: "singinToMenuVC", sender: nil)
-//        }
-//        else {
-//            let alert = UIAlertController(title: "Invalied UserName or Password", message: "Itry again", preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-//            self.present(alert, animated: true)
-//        }
         
         Auth.auth().signIn(withEmail: emailTextFiled.text!, password: passwordTextFiled.text!) { (user, error) in
             if error != nil {
@@ -70,9 +61,8 @@ class SignInViewController: UIViewController {
 
                 self.present(alert, animated: true)
             }else{
-                 self.performSegue(withIdentifier: "singinToMenuVC", sender: nil)
+                self.performSegue(withIdentifier: "singinToMenuVC", sender: nil)
             }
-    }
-        
+        }
     }
 }

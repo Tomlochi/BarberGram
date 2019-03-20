@@ -11,6 +11,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import ProgressHUD
 
 class SinUpViewController:  UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -97,7 +98,7 @@ class SinUpViewController:  UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func signUpBtn(_ sender: Any) {
-        
+        ProgressHUD.show("Sign in", interaction: false)
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextFiled.text!) { user, error in
             if error != nil {
                 print(error!.localizedDescription)
@@ -108,6 +109,8 @@ class SinUpViewController:  UIViewController, UIImagePickerControllerDelegate, U
             
             Model.instance.saveImage(image: self.image!, child: "users",isProfileImage: true , UserWithDetails : newUserWithAllDetails)
             
+             ProgressHUD.show("You Are a User", interaction: true)
+            ProgressHUD.dismiss()
             self.performSegue(withIdentifier: "singupToMenuVC", sender: nil)
         }
         
