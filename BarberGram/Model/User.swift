@@ -16,6 +16,8 @@ class User{
     var username : String?
     var password: String?
     var imgUrl: String?
+    var uid: String?
+    
     
     init(){
         email = ""
@@ -29,6 +31,13 @@ class User{
         username = ""
         password = ""
         imgUrl = ""
+    }
+    
+    init(_uid:String, _username:String, _email:String,_profileImgUrl:String){
+        uid = _uid
+        email = _email
+        username = _username
+        imgUrl = _profileImgUrl
     }
     
     init(_email:String, _username:String, _password:String){
@@ -73,6 +82,7 @@ extension User{
         user.imgUrl = dict["imgUrl"] as? String
         user.username = dict["username"] as? String
         user.password = dict["password"] as? String
+         user.uid = dict["uid"] as? String
         return user
     }
 }

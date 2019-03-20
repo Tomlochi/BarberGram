@@ -35,6 +35,8 @@
 		849422EF223D0DD000D63D3C /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849422EE223D0DD000D63D3C /* CommentViewController.swift */; };
 		849422F3223D0F3F00D63D3C /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849422F2223D0F3F00D63D3C /* CommentTableViewCell.swift */; };
 		849422F5223D541E00D63D3C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849422F4223D541E00D63D3C /* Comment.swift */; };
+		84E72EBF2241FFEB00422EED /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E72EBE2241FFEB00422EED /* Profile.swift */; };
+		84E72EC12242001800422EED /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E72EC02242001800422EED /* ProfileTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 		849422EE223D0DD000D63D3C /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		849422F2223D0F3F00D63D3C /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		849422F4223D541E00D63D3C /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		84E72EBE2241FFEB00422EED /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		84E72EC02242001800422EED /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		B287719D5E95C84A89FFE017 /* Pods-BarberGramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarberGramTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BarberGramTests/Pods-BarberGramTests.release.xcconfig"; sourceTree = "<group>"; };
 		BA14FB3E457B76B99C3F0817 /* Pods-BarberGram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarberGram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BarberGram/Pods-BarberGram.debug.xcconfig"; sourceTree = "<group>"; };
 		D0857E70BE77449DCEB5FD99 /* Pods-BarberGramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarberGramUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BarberGramUITests/Pods-BarberGramUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 			children = (
 				8424E78522301D35001E9D6D /* HomePageTableViewCell.swift */,
 				849422F2223D0F3F00D63D3C /* CommentTableViewCell.swift */,
+				84E72EC02242001800422EED /* ProfileTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 				840E38CC222C9FAF000FA216 /* Post.swift */,
 				8424E79022302C64001E9D6D /* UserSql.swift */,
 				849422F4223D541E00D63D3C /* Comment.swift */,
+				84E72EBE2241FFEB00422EED /* Profile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -481,9 +487,11 @@
 				849422EF223D0DD000D63D3C /* CommentViewController.swift in Sources */,
 				848462FB2221CD900045E4E9 /* CameraViewController.swift in Sources */,
 				848462FF2221CDC70045E4E9 /* ProfileViewController.swift in Sources */,
+				84E72EC12242001800422EED /* ProfileTableViewCell.swift in Sources */,
 				84447CA22224549600EAB773 /* HomePageViewController.swift in Sources */,
 				84447CA9222461BC00EAB773 /* User.swift in Sources */,
 				84447CA722245FFF00EAB773 /* Model.swift in Sources */,
+				84E72EBF2241FFEB00422EED /* Profile.swift in Sources */,
 				84447CA522245FF300EAB773 /* FireBaseModel.swift in Sources */,
 				848462F32221C3380045E4E9 /* SinUpViewController.swift in Sources */,
 			);

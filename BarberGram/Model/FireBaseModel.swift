@@ -100,7 +100,7 @@ class ModelFireBase{
         ProgressHUD.showSuccess("Seccess")
     }
     
-    func sendCommentDataToDatabase(comment: String){
+    func sendCommentDataToDatabase(comment: String , postId:String){
         let ref = Database.database().reference()
         let commentReference = ref.child("comments")
         let newCommentId = commentReference.childByAutoId().key
@@ -108,7 +108,7 @@ class ModelFireBase{
         let userId = Auth.auth().currentUser!.uid
         newCommentReference.setValue(["uid": userId,"commentText": comment])
         
-        let postId = "La61qXpVvv-vvm_Y__9"
+       // let postId = "La61qXpVvv-vvm_Y__9"
         let postCommentRef = ref.child("post-comments").child(postId).child(newCommentId!)
         postCommentRef.setValue(true)
         

@@ -37,8 +37,8 @@ class Model {
         modelFirebase.uploadPhoto(image: image, child: child,IsProfileImage: isProfileImage , UserDetails :UserWithDetails)
     }
     
-    func sendCommentDataToDatabase(comment: String){
-        modelFirebase.sendCommentDataToDatabase(comment: comment)
+    func sendCommentDataToDatabase(comment: String , postId :String){
+        modelFirebase.sendCommentDataToDatabase(comment: comment, postId: postId)
     }
     
     

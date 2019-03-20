@@ -29,7 +29,8 @@ class HomePageViewController: UIViewController {
     func loadPost(){
         activityView.startAnimating(); Database.database().reference().child("posts").observe(.childAdded){(snapshot:DataSnapshot) in
             if let dict = snapshot.value as? [String:Any]{
-                let newPost = Post.transformPost(dict: dict)
+                let newPost = Post.transformPost(dict: dict,key: snapshot.key)
+               
                 self.posts.append(newPost)
                 self.activityView.stopAnimating()
                 self.tableView.reloadData()
@@ -37,9 +38,12 @@ class HomePageViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.isHidden = false
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "CommentSeque"{
+            let commentVC = segue.destination as! CommentViewController
+            let postId = sender as! String
+            commentVC.postId = postId
+        }
     }
     
     @IBAction func logoutButton(_ sender: Any) {
@@ -69,7 +73,7 @@ extension HomePageViewController: UITableViewDataSource{
         cell.post = post
         cell.profileImage.layer.cornerRadius = 18
         cell.profileImage.clipsToBounds = true
-        
+        cell.homeVC = self
         
         return cell
         

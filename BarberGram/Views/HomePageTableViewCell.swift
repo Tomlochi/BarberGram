@@ -14,11 +14,10 @@ class HomePageTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var likeImageView: UIImageView!
-    @IBOutlet weak var commentImageView: UIImageView!
-    @IBOutlet weak var shareImageView: UIImageView!
     @IBOutlet weak var likeCountButton: UIButton!
     @IBOutlet weak var captionLabel: UILabel!
     
+    var homeVC : HomePageViewController?
     var post : Post?{
         didSet{
              updateView()
@@ -39,6 +38,12 @@ class HomePageTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 
+    @IBAction func commentButton(_ sender: Any) {
+        if let id = post?.id{
+             homeVC?.performSegue(withIdentifier: "CommentSeque", sender: id)
+        }
+        
+    }
     func setUpUserInfo(){
         if let uid = post?.uid{
             Database.database().reference().child("users").child(uid).observeSingleEvent(of: DataEventType.value, with: {
@@ -49,6 +54,7 @@ class HomePageTableViewCell: UITableViewCell {
                     if let photoUrlString = user.imgUrl{
                         let photoUrl = URL(string: photoUrlString)
                         self.profileImage.sd_setImage(with: photoUrl)
+                        
                     }
                     
                 }

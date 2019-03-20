@@ -16,6 +16,7 @@ class CommentViewController: UIViewController {
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     
+    var postId:String!
     var comments = [Comment]()
     var users = [User]()
     override func viewDidLoad() {
@@ -29,8 +30,10 @@ class CommentViewController: UIViewController {
     }
     
     func loadComments(){
-        let postId = "La61qXpVvv-vvm_Y__9"
-        let postCommentRef = Database.database().reference().child("post-comments").child(postId)
+//        let postId = "La61qXpVvv-vvm_Y__9"
+        print("the post id is : " , self.postId)
+        
+        let postCommentRef = Database.database().reference().child("post-comments").child(self.postId)
         if commentTextField.text != nil{
         postCommentRef.observe(.childAdded, with: {
             snapshot in
@@ -46,13 +49,21 @@ class CommentViewController: UIViewController {
         }
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+        
+        
+    }
 
     @IBAction func sendButton(_ sender: Any) {
-        Model.instance.sendCommentDataToDatabase(comment: commentTextField.text!)
+        Model.instance.sendCommentDataToDatabase(comment: commentTextField.text!, postId: self.postId)
         self.empty()
     }
     
